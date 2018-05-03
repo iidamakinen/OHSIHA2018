@@ -21,3 +21,11 @@ $ git commit -m "Commit message"
 $ git push -u origin master
 ```
 Kun tehdään muutoksia/lisäyksiä projektiin, tarpeeseen tulevat komennot `add`, `commit`, `push` ja `pull`.
+
+#### Hyviä lähteitä:
++ https://help.github.com/
++ Muiden opiskelijoiden dokumentaatiot aiheeseen liittyen
+
+#### Huomioita:
++ Erilaisia ohjeita versionhallintaan löytyi niin paljon, että aluksi olin vähän sekaisin siitä, mitä niistä tulisi seurata
++ Gitin sekä Githubin käyttöönotto oli erittäin yksinkertaista kunhan sopivat ohjeet löytyivät
