@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Luo tai päivitä</title>
+  </head>
+<!-- Ote tapahtuma-form.html-tiedostosta -->
+  <body>
+    <h1>Luo/Päivitä tapahtuma</h1>
+    <p>Tällä sivulla voit lisätä listaasi uuden tapahtuman tai päivittää jo lisätyn tietoja. Takaisin tapahtumalistaasi pääset painamalla edellistä.</p>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit">Tallenna</button>
+    </form>
+
+    {% if tapahtuma %}
+      <a href="{% url 'delete_event' tapahtuma.id %}" >Poista tapahtuma</a>
+    {% endif %}
+  </body>
+</html>

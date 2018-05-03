@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Document</title>
+  </head>
+<!-- Ote tapahtuma.html-tiedostosta -->
+  <body>
+
+    <style>
+    .otsikko {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-family:courier;
+    }
+    </style>
+
+    <style>
+    .kappale {
+      background-color: LightGray;
+      color: white;
+      padding: 5px;
+    }
+    </style>
+
+    <style>
+    a:link {
+      color: Black;
+    }
+    </style>
+
+    <font face="sans-serif">
+    <h2 class="otsikko">Tapahtumalistasi</h2>
+    <ul>
+      {% for tapahtuma in tapahtuma %}
+        <a href="{% url 'update_event' tapahtuma.id %}">
+          <li> {{ tapahtuma.name }}</li>
+        </a>
+      {% endfor %}
+    </ul>
+    <p><button><a href="{% url 'create_event' %}" >Lisää uusi tapahtuma</a></button>
+    <button><a href="/">Etusivu</a></button></p>
+
+    <h2 class="otsikko">Tulevia tapahtumia Tampereella</h2>
+    <!-- <p> -->
+      <ul>
+        {% for event in event_list %}
+        <li>
+          <div><a href="{{event.contact_info.link}}">{{ event.title }}</a></div>
+          <!-- <p style="background-color:LightGray;"> -->
+          <p class="kappale">{{event.description}}
+          <br><strong>Pvm:</strong>{{event.pvm | date:"D d M Y" }}</br>
+          </p>
+        </li>
+        {% endfor %}
+      </ul>
+    <!-- </p> -->
+    </font>
+  </body>
+</html>

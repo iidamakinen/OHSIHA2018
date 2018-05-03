@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Poista tapahtuma</title>
+  </head>
+<!-- Ote tapahtuma-delete-confirm.html-tiedostosta -->
+  <body>
+    <form method="post">
+      {% csrf_token %}
+      <h3>Haluatko varmasti poistaa tapahtuman {{ tapahtuma.name }} ?</h3>
+      <p>Takaisin tapahtuman luonti/päivitys -sivulle pääset painamalla edellistä.</p>
+      <button type="submit">Poista</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Etusivu{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <h3>Moi {{ user.username }} !</h3>
+  <p>Olet nyt kirjautuneena sisään.</p>
+  <p>Tapahtumalistaukseesi pääset <a href="/accounts/etusivu">tästä!</a></p>
+  <p>Lisää uusi tapahtuma <a href="/accounts/new">tästä!</a>
+  <p><a href="{% url 'logout' %}">Kirjaudu ulos</a></p>
+{% else %}
+  <p><a href="{% url 'login' %}">Kirjaudu</a> sisään nähdäksesi tapahtumalistauksesi.</p>
+  <p>Eikö sinulla ole vielä käyttäjätunnasta? Rekisteröidy<a href="{% url 'signup' %}"> tästä!</a>
+{% endif %}
+{% endblock %}

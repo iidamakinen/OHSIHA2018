@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+    <table id="datatable">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Musiikki</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Musiikki</th>
+          <td>{{kategoriat.musiikki|safe}}</td>
+        </tr>
+        <tr>
+          <th>Kulttuuri</th>
+          <td>{{kategoriat.kulttuuri}}</td>
+        </tr>
+        <tr>
+          <th>Tanssi</th>
+          <td>{{kategoriat.tanssi}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+          Highcharts.chart('container', {
+        data: {
+          table: 'datatable'
+        },
+        chart: {
+          type: 'column'
+        },
+        title: {
+          text: 'Tapahtumien määrä kategorioittain Tampereella vuonna 2018'
+        },
+        yAxis: {
+          allowDecimals: false,
+          title: {
+            text: 'Tapahtumien määrä'
+          }
+        },
+        tooltip: {
+          formatter: function() {
+            return '<b>' + this.series.name + '</b><br/>' +
+              this.point.y + ' ' + this.point.name.toLowerCase();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
